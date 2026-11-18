@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SHAIDU AI</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0b1020;
+  color: white;
+}
+header {
+  background: #151d35;
+  padding: 20px;
+  text-align: center;
+  color: #00e5ff;
+  font-size: 25px;
+  font-weight: bold;
+}
+.container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+}
+#chat {
+  height: 60vh;
+  overflow-y: auto;
+  background: #151d35;
+  padding: 15px;
+  border-radius: 15px;
+}
+.message {
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 12px;
+}
+.user {
+  background: #2563eb;
+  text-align: right;
+}
+.ai {
+  background: #263149;
+}
+.input-area {
+  display: flex;
+  gap: 8px;
+  margin-top: 15px;
+}
+input {
+  flex: 1;
+  padding: 15px;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+}
+button {
+  background: #00c8e8;
+  color: black;
+  border: none;
+  padding: 15px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<header>🤖 SHAIDU AI</header>
+
+<div class="container">
+  <div id="chat">
+    <div class="message ai">
+      Habari! Mimi ni SHAIDU AI 🤖. Karibu! Niulize swali lolote kwa Kiswahili au English.
+    </div>
+  </div>
+
+  <div class="input-area">
+    <input id="message" placeholder="Andika ujumbe hapa..." />
+    <button onclick="sendMessage()">Tuma</button>
+  </div>
+</div>
+
+<script>
+function sendMessage() {
+  const input = document.getElementById("message");
+  const chat = document.getElementById("chat");
+  const text = input.value.trim();
+
+  if (!text) return;
+
+  chat.innerHTML += `<div class="message user">${text}</div>`;
+
+  input.value = "";
+
+  chat.innerHTML += `
+    <div class="message ai">
+      Karibu! SHAIDU AI inatengenezwa. Mfumo wa AI utaunganishwa hivi karibuni. 🤖
+    </div>
+  `;
+
+  chat.scrollTop = chat.scrollHeight;
+}
+</script>
+
+</body>
+</html>
